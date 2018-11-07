@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+io.ghostbuster91.spring.boot.retrofit2.AutoRetrofitInterfaceScanner
