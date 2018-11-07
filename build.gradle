@@ -1,0 +1,45 @@
+buildscript {
+    ext.retrofit_version = '2.4.0'
+}
+
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.0-rc-190'
+    id 'org.springframework.boot' version '2.0.6.RELEASE'
+    id "org.jetbrains.kotlin.plugin.spring" version '1.3.0-rc-190'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group 'io.ghostbuster91.spring.boot.retrofit2'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven { url 'http://dl.bintray.com/kotlin/kotlin-eap' }
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile "org.jetbrains.kotlin:kotlin-reflect"
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "com.fasterxml.jackson.module:jackson-module-kotlin"
+    compile "com.google.guava:guava:27.0-jre"
+
+    compile "com.squareup.retrofit2:retrofit:${retrofit_version}"
+    compile "com.squareup.retrofit2:converter-moshi:${retrofit_version}"
+    compile "com.squareup.retrofit2:adapter-rxjava2:${retrofit_version}"
+
+    testCompile "io.reactivex.rxjava2:rxjava:2.2.2"
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+    testCompile "junit:junit:4.12"
+    testCompile 'com.nhaarman:mockito-kotlin:1.6.0'
+    testCompile 'com.willowtreeapps.assertk:assertk-jvm:0.12'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
